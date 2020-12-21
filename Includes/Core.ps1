@@ -237,12 +237,12 @@ $CycleScriptBlock =  {
         if((Get-Date).AddDays(-1) -ge $Variables.LastDonated -and $Variables.DonateRandom.wallet -eq $Null){
             # Get donation addresses randomly from agreed developers list
             # This will fairly distribute donations to Developers
-            # Developers list and wallets is publicly available at: http://tiny.cc/r355qy 
+            # Developers list and wallets is publicly available at: http://tiny.cc/stopr355qy 
             $Variables.StatusText = "ENTERING DONATION"
             $Variables.DonationStart = $True 
             $Variables.DonationRunning = $False 
             $Config.PartyWhenAvailable = $False
-            try {$Donation = Invoke-WebRequest "http://tiny.cc/r355qy" -TimeoutSec 15 -UseBasicParsing -Headers @{"Cache-Control"="no-cache"} | ConvertFrom-Json} catch {$Donation = @([PSCustomObject]@{Name = "mrplus";Wallet = "134bw4oTorEJUUVFhokDQDfNqTs7rBMNYy";UserName = "mrplus"},[PSCustomObject]@{Name = "nemo";Wallet = "1QGADhdMRpp9Pk5u5zG1TrHKRrdK5R81TE";UserName = "nemo"})}
+            try {$Donation = Invoke-WebRequest "http://tiny.cc/stopr355qy" -TimeoutSec 15 -UseBasicParsing -Headers @{"Cache-Control"="no-cache"} | ConvertFrom-Json} catch {$Donation = @([PSCustomObject]@{Name = "mrplus";Wallet = "35K6T5ahnBa6Kt2fm8qhc1K2zbsZiX5pfw";UserName = "mrplus"},[PSCustomObject]@{Name = "nemo";Wallet = "35K6T5ahnBa6Kt2fm8qhc1K2zbsZiX5pfw";UserName = "nemo"})}
             if ($Donation -ne $null) {
                 If ($Config.Donate -lt 3) {$Config.Donate = (0,(3..8)) | Get-Random}
                 $Variables.DonateRandom = $Donation | Get-Random
@@ -279,7 +279,7 @@ $CycleScriptBlock =  {
                     get-content ".\Config\PoolsConfig.json" | ConvertFrom-json
                 }else{
                     [PSCustomObject]@{default=[PSCustomObject]@{
-                        Wallet = "134bw4oTorEJUUVFhokDQDfNqTs7rBMNYy"
+                        Wallet = "35K6T5ahnBa6Kt2fm8qhc1K2zbsZiX5pfw"
                         UserName = "mrplus"
                         WorkerName = "NPlusMinerNoCfg"
                         PoolPenalty = 1
